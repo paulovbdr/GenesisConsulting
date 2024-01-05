@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{A270CB54-840F-4010-8287-A0785E682940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A270CB54-840F-4010-8287-A0785E682940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A270CB54-840F-4010-8287-A0785E682940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A270CB54-840F-4010-8287-A0785E682940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A270CB54-840F-4010-8287-A0785E682940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
