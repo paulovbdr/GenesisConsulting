@@ -9,7 +9,7 @@ namespace Domain.Models
 {
     public abstract class InvestmentModel
     {
-        public InvestmentModel()
+        protected InvestmentModel()
         {
 
         }

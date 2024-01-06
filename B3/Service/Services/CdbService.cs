@@ -11,21 +11,21 @@ namespace Service.Services
 {
     public class CdbService : IInvestimentService
     {
-        public InvestmentDtoCreateResult CalculateInvestment(InvestmentDtoCreate cdbDtoCreate)
+        public InvestmentDtoCreateResult CalculateInvestment(InvestmentDtoCreate investmentDtoCreate)
         {
-            CdbModel cdbModel = new CdbModel();
+            CdbModel cdbModel = new();
 
-            if (cdbDtoCreate.Amount <= 0)
+            if (investmentDtoCreate.Amount <= 0)
             {
-                throw new Exception("Invalid amount!");
+                throw new ArgumentException("Invalid amount!");
             }
 
-            if (cdbDtoCreate.InvestmenTimeMonth <= 1)
+            if (investmentDtoCreate.InvestmenTimeMonth <= 1)
             {
-                throw new Exception("Invalid investment time!");
+                throw new ArgumentException("Invalid investment time!");
             }
             
-            var result = cdbModel.CalculateInvestment(cdbDtoCreate.Amount, cdbDtoCreate.InvestmenTimeMonth);
+            var result = cdbModel.CalculateInvestment(investmentDtoCreate.Amount, investmentDtoCreate.InvestmenTimeMonth);
 
             return result;
         }

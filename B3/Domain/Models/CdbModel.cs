@@ -9,25 +9,25 @@ namespace Domain.Models
 {
     public class CdbModel : InvestmentModel
     {
-        private static decimal _taxUntilSixMonth = 22.5M;
-        private static decimal _taxUntilTwelveMonth = 20M;
-        private static decimal _taxUntilTwentyFourMonth = 17.5M;
-        private static decimal _taxAboveTwentyFourMonth = 15M;
-        protected static decimal _cdi = 0.9M;
-        protected static decimal _tb = 108M;
+        private readonly static decimal _taxUntilSixMonth = 22.5M;
+        private readonly static decimal _taxUntilTwelveMonth = 20M;
+        private readonly static decimal _taxUntilTwentyFourMonth = 17.5M;
+        private readonly static decimal _taxAboveTwentyFourMonth = 15M;
+        private readonly static decimal _cdi = 0.9M;
+        private readonly static decimal _tb = 108M;
         public CdbModel()
         {
         }
 
         public override InvestmentDtoCreateResult CalculateInvestment(decimal amount, int investmentTimeMonth)
         {
-            InvestmentDtoCreateResult investmentDtoCreateResult = new InvestmentDtoCreateResult();
+            InvestmentDtoCreateResult investmentDtoCreateResult = new();
             decimal grossAmount = amount;
             var cdiTbValue = GetCdiTbValue();
 
             for (int month = 1; month <= investmentTimeMonth; month++)
             {
-                grossAmount = grossAmount * cdiTbValue; 
+                grossAmount *= cdiTbValue; 
             }
             
             investmentDtoCreateResult.GrossAmount = Math.Round(grossAmount, 2);
@@ -45,26 +45,21 @@ namespace Domain.Models
             return investimentAmount * tax / 100;
         }
 
-        private decimal GetCdiTbValue()
+        private static decimal GetCdiTbValue()
         {
             return 1 + (_cdi / 100) * (_tb / 100);
         }
 
-        private decimal GetTax(int investmentTime)
+        private static decimal GetTax(int investmentTime)
         {
-            switch (investmentTime)
+            return investmentTime switch
             {
-                case >= 2 and <= 6:
-                    return _taxUntilSixMonth;
-                case >= 7 and <= 12:
-                    return _taxUntilTwelveMonth;
-                case >= 13 and <= 24:
-                    return _taxUntilTwentyFourMonth;
-                case >= 24:
-                    return _taxAboveTwentyFourMonth;
-                default:
-                    throw new Exception("Invalid investment time!");
-            }
+                >= 2 and <= 6 => _taxUntilSixMonth,
+                >= 7 and <= 12 => _taxUntilTwelveMonth,
+                >= 13 and <= 24 => _taxUntilTwentyFourMonth,
+                >= 24 => _taxAboveTwentyFourMonth,
+                _ => throw new ArgumentException("Invalid investment time!"),
+            };
         }
         
     }

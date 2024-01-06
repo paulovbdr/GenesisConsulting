@@ -1,3 +1,44 @@
 
-<button (click)="test()">Calcular</button>
+
+<!-- <button (click)="calculateInvestment()">Calcular</button> -->
+
+
+<!-- 
+<div class="example-container">
+    <mat-form-field floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" class="example-right-align" >
+      <span matTextPrefix>$&nbsp;</span>
+      <span matTextSuffix>.00</span>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <button mat-button color="primary" (click)="calculateInvestment()">Calcular</button>
+    </mat-form-field>
+  </div> -->
+
+  <div class="example-container">
+    <mat-form-field floatLabel="always">
+      <mat-label>Valor do Investimento</mat-label>
+      <input matInput type="number" class="example-right-align form-control" placeholder="0" min="0.1" [(ngModel)]="cdbModel.amount" required >
+      <span matTextPrefix>$&nbsp;</span>
+      @if (inputAmount) {
+        <mat-error>Valor inválido</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Tempo em mês que será investido</mat-label>
+        <input matInput type="number" class="example-right-align form-control" placeholder="2" min="2" [(ngModel)]="cdbModel.investmenTimeMonth" required>
+        @if (inputInvestmenTimeMonth) {
+          <mat-error>Valor inválido</mat-error>
+        }
+    </mat-form-field>
+
+    <div>
+        <button mat-button color="primary" (click)="calculateInvestment()" [disabled]="!cdbModel.amount || !cdbModel.investmenTimeMonth">Calcular</button>
+    </div>
+  </div>
+  <div class="example-container" *ngIf="!isEmptyObject(cdbResultModel)">
+    <p>Valor Líquido: {{cdbResultModel.netAmount}}</p>
+    <p>Valor Bruto: {{cdbResultModel.grossAmount}}</p>
+  </div>
 <router-outlet></router-outlet>

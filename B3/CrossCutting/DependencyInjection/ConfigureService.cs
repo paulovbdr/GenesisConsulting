@@ -11,6 +11,10 @@ namespace CrossCutting.DependencyInjection
 {
     public class ConfigureService
     {
+        protected ConfigureService()
+        {
+
+        }
         public static void ConfigureDependenciesService(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IInvestimentService, CdbService>();

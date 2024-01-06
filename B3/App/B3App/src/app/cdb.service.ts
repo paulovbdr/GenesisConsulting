@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Cdb } from './interface/cdb';
+import { CdbModel } from './interface/cdb-model';
+import { CdbResultModel } from './interface/cdb-result-model';
 import { finalize, Observable } from 'rxjs';
 
-const urlBase = 'http://localhost:57790';
+const urlBase = 'http://localhost:57790/api';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,11 +21,10 @@ export class CdbService {
 
   constructor(private http: HttpClient) { }
 
-  getTest(): Observable<Cdb> {
-    console.log(`${urlBase}/WeatherForecast`);
-    return this.http.get<any>(`${urlBase}/WeatherForecast`).pipe(
+  calculateInvestment(cdb: CdbModel): Observable<CdbResultModel> {
+    return this.http.post<any>(`${urlBase}/Cdb/CalculateInvestment`, cdb, httpOptions).pipe(
       finalize(() => {
-        console.log('retorno do get');
+        console.log('retorno do post');
       })
     );
   }

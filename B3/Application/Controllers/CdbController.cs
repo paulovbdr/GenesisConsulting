@@ -15,7 +15,7 @@ namespace Application.Controllers
     public class CdbController : ControllerBase
     {
 
-        private IInvestimentService _service;
+        private readonly IInvestimentService _service;
 
         public CdbController(IInvestimentService service)
         {
@@ -23,17 +23,11 @@ namespace Application.Controllers
         }
 
         [HttpPost]
+        [Route("CalculateInvestment")]
         public InvestmentDtoCreateResult CalculateInvestment(InvestmentDtoCreate investmentDtoCreate)
         {
-            try
-            {
-                var result = _service.CalculateInvestment(investmentDtoCreate);
-                return result;
-            }
-            catch (ArgumentException)
-            {
-                throw;
-            }
+            var result = _service.CalculateInvestment(investmentDtoCreate);
+            return result;
         }
     }
 }
