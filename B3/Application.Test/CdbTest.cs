@@ -15,7 +15,7 @@ namespace Application.Test
     public class CdbTest
     {
         private CdbController? _controller;
-        private const string _url = "http://localhost:5000";
+        private const string _url = "http://localhost:57790";
 
         [Fact(DisplayName = "Post calculate investment")]
         public void PostCalculateInvestment()
