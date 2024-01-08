@@ -1,17 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{91B35483-378C-40B3-B975-30614C1D9FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{89B0E832-7CC2-4242-8267-72F5ED132826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{89B0E832-7CC2-4242-8267-72F5ED132826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{7ECC82A4-0733-476F-A289-4ACBF7B2578A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{7ECC82A4-0733-476F-A289-4ACBF7B2578A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{3E3AEE5E-1F74-4487-A80D-A7EEF294C0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{A270CB54-840F-4010-8287-A0785E682940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{A270CB54-840F-4010-8287-A0785E682940}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Test", "Application.Test\Application.Test.csproj", "{99729C61-1F08-40B0-AE13-03026D8D8466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Test", "Domain.Test\Domain.Test.csproj", "{FEF94A5A-40C6-490A-8154-13BB7241AC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Test", "Service.Test\Service.Test.csproj", "{07ABBE87-B6C1-4228-880F-A6CD02CB6FEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{A270CB54-840F-4010-8287-A0785E682940}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A270CB54-840F-4010-8287-A0785E682940}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A270CB54-840F-4010-8287-A0785E682940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99729C61-1F08-40B0-AE13-03026D8D8466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99729C61-1F08-40B0-AE13-03026D8D8466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99729C61-1F08-40B0-AE13-03026D8D8466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99729C61-1F08-40B0-AE13-03026D8D8466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF94A5A-40C6-490A-8154-13BB7241AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF94A5A-40C6-490A-8154-13BB7241AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF94A5A-40C6-490A-8154-13BB7241AC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF94A5A-40C6-490A-8154-13BB7241AC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07ABBE87-B6C1-4228-880F-A6CD02CB6FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07ABBE87-B6C1-4228-880F-A6CD02CB6FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07ABBE87-B6C1-4228-880F-A6CD02CB6FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07ABBE87-B6C1-4228-880F-A6CD02CB6FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

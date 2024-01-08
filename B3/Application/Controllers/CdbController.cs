@@ -12,22 +12,29 @@ namespace Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CdbController : ControllerBase
+    public class CdbController(IInvestimentService service) : ControllerBase
     {
 
-        private readonly IInvestimentService _service;
-
-        public CdbController(IInvestimentService service)
-        {
-            _service = service;
-        }
+        private readonly IInvestimentService _service = service;
 
         [HttpPost]
         [Route("CalculateInvestment")]
-        public InvestmentDtoCreateResult CalculateInvestment(InvestmentDtoCreate investmentDtoCreate)
+        public IActionResult CalculateInvestment(InvestmentDtoCreate investmentDtoCreate)
         {
-            var result = _service.CalculateInvestment(investmentDtoCreate);
-            return result;
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var result = _service.CalculateInvestment(investmentDtoCreate);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
     }
 }

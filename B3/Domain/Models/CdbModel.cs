@@ -21,6 +21,16 @@ namespace Domain.Models
 
         public override InvestmentDtoCreateResult CalculateInvestment(decimal amount, int investmentTimeMonth)
         {
+            if (amount <= 0)
+            {
+                throw new ArgumentException("Invalid amount!");
+            }
+
+            if (investmentTimeMonth <= 1)
+            {
+                throw new ArgumentException("Invalid investment time!");
+            }
+
             InvestmentDtoCreateResult investmentDtoCreateResult = new();
             decimal grossAmount = amount;
             var cdiTbValue = GetCdiTbValue();
